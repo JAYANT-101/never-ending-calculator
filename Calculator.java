@@ -1,6 +1,7 @@
 import java.awt.*;
 import java.awt.event.*;
 import java.util.Arrays;
+import java.util.Objects;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 public class Calculator {
@@ -82,6 +83,28 @@ public class Calculator {
                 button.setBackground(customDrakeGray);
                 button.setForeground(Color.white);
             }
+            // This is an event listener
+            button.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    JButton button=(JButton) e.getSource();
+                    String buttonValue = button.getText();
+                    if(Arrays.asList(rightSymbols).contains(buttonValue)){
+
+                    } else if (Arrays.asList(topSymbols).contains(buttonValue)) {
+
+                    }else{
+                        if(Objects.equals(buttonValue, ".")){
+
+                        } else if ("0123456789".contains(buttonValue)) {
+                            if(Objects.equals(displayLabel.getText(), "0")){
+                                displayLabel.setText(buttonValue);
+                            }
+
+                        }
+                    }
+                }
+            });
         }
     }
 }
