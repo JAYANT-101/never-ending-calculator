@@ -1,2 +1,2 @@
 # Java-project-calculator
-simple calculator using java
+simple calculator using java u
