@@ -17,7 +17,8 @@ public class Calculator {
             "7", "8", "9", "×",
             "4", "5", "6", "-",
             "1", "2", "3", "+",
-            "0", ".", "√", "="
+            "0", ".", "√", "=",
+            "<","","",""
     };
     String[] rightSymbols = {"÷", "×", "-", "+", "="};
     String[] topSymbols = {"AC", "+/-", "%"};
@@ -77,7 +78,7 @@ public class Calculator {
         frame.add(displayPanel,BorderLayout.NORTH);
 
         // Setting the buttons
-        buttonsPanel.setLayout(new GridLayout(5,4));
+        buttonsPanel.setLayout(new GridLayout(6,4));
         buttonsPanel.setBackground(customBlack);
         frame.add(buttonsPanel);
 
@@ -157,6 +158,17 @@ public class Calculator {
                         if(Objects.equals(buttonValue,"√")){
                             double root=Double.parseDouble(displayLabel.getText());
                             displayLabel.setText(removeZeroDecimal(Math.sqrt(root)));
+                        }
+                        if(Objects.equals(buttonValue,"<")){
+                            String a=displayLabel.getText();
+                            if(a.length()==1){
+                                displayLabel.setText("0");
+                            }
+                            if(!displayLabel.getText().equals("0")){
+                                displayLabel.setText(a.substring(0,a.length()-1));
+                            }else {
+                                displayLabel.setText("0");
+                            }
                         }
                         if(Objects.equals(buttonValue, ".")){
                             if(!displayLabel.getText().contains(".")){
