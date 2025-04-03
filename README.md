@@ -1,2 +1,2 @@
 # Java-project-calculator
-simple calculator using java u
+I am making a simple calculator first, and then I will add new things to make it into an advanced calculator then. As I learn more things. I will add AI/ML, blockchain, and a database and make it so user can talk to each other, make a custom  OS for this and much, much more hopefully I will be able to learn all these things and be able to implement all in this project and this project will never end, as the name suggest
