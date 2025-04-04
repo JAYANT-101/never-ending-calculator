@@ -18,10 +18,11 @@ public class Calculator {
             "4", "5", "6", "-",
             "1", "2", "3", "+",
             "0", ".", "√", "=",
-            "<","","",""
+            "<","CE","",""
     };
     String[] rightSymbols = {"÷", "×", "-", "+", "="};
     String[] topSymbols = {"AC", "+/-", "%"};
+    String[] bottomSymbols={"<","CE"};
 
     // This is a window this will have the panel
     JFrame frame=new JFrame("Calculator");
@@ -98,7 +99,10 @@ public class Calculator {
             } else if (Arrays.asList(rightSymbols).contains(i)) {
                 button.setBackground(customOrange);
                 button.setForeground(Color.white);
-            }else {
+            } else if (Arrays.asList(bottomSymbols).contains(i)) {
+                button.setBackground(customLightGray);
+                button.setForeground(customBlack);
+            } else {
                 button.setBackground(customDrakeGray);
                 button.setForeground(Color.white);
             }
@@ -121,7 +125,24 @@ public class Calculator {
                             numDisplay /=100;
                             displayLabel.setText(removeZeroDecimal(numDisplay));
                         }
-                    } else if (Arrays.asList(rightSymbols).contains(buttonValue)) {
+                    } else if (Arrays.asList(bottomSymbols).contains(buttonValue)) {
+                        if(Objects.equals(buttonValue,"<")) {
+                            String a = displayLabel.getText();
+                            if (a.length() == 1) {
+                                displayLabel.setText("0");
+                            }
+                            if (!displayLabel.getText().equals("0")) {
+                                displayLabel.setText(a.substring(0, a.length() - 1));
+                            } else {
+                                displayLabel.setText("0");
+                            }
+                        } else if (Objects.equals(buttonValue,"CE")) {
+                            if (!displayLabel.getText().equals("0")){
+                                displayLabel.setText("0");
+                            }
+                        }
+                    }
+                        else if (Arrays.asList(rightSymbols).contains(buttonValue)) {
                         if(Objects.equals(buttonValue,"=")){
                             if (A!=null){
                                 B=displayLabel.getText();
