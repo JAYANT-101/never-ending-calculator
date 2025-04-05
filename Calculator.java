@@ -18,7 +18,7 @@ public class Calculator {
             "4", "5", "6", "-",
             "1", "2", "3", "+",
             "0", ".", "√", "=",
-            "<","CE","",""
+            "<","CE","x²",""
     };
     String[] rightSymbols = {"÷", "×", "-", "+", "="};
     String[] topSymbols = {"AC", "+/-", "%"};
@@ -179,8 +179,10 @@ public class Calculator {
                         if(Objects.equals(buttonValue,"√")){
                             double root=Double.parseDouble(displayLabel.getText());
                             displayLabel.setText(removeZeroDecimal(Math.sqrt(root)));
-                        }
-                        if(Objects.equals(buttonValue,"<")){
+                        } else if (Objects.equals(buttonValue,"x²")) {
+                            double square=Double.parseDouble(displayLabel.getText());
+                            displayLabel.setText(removeZeroDecimal(square*square));
+                        } else if(Objects.equals(buttonValue,"<")){
                             String a=displayLabel.getText();
                             if(a.length()==1){
                                 displayLabel.setText("0");
@@ -190,8 +192,7 @@ public class Calculator {
                             }else {
                                 displayLabel.setText("0");
                             }
-                        }
-                        if(Objects.equals(buttonValue, ".")){
+                        } else if(Objects.equals(buttonValue, ".")){
                             if(!displayLabel.getText().contains(".")){
                                 displayLabel.setText(displayLabel.getText()+buttonValue);
                             }
