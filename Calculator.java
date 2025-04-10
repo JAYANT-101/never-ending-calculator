@@ -18,7 +18,7 @@ public class Calculator {
             "4", "5", "6", "-",
             "1", "2", "3", "+",
             "0", ".", "√", "=",
-            "<","CE","x²",""
+            "<","CE","x²","½"
     };
     String[] rightSymbols = {"÷", "×", "-", "+", "="};
     String[] topSymbols = {"AC", "+/-", "%"};
@@ -191,6 +191,11 @@ public class Calculator {
                                 displayLabel.setText(a.substring(0,a.length()-1));
                             }else {
                                 displayLabel.setText("0");
+                            }
+                        } else if (Objects.equals(buttonValue,"½")) {
+                            double c=Double.parseDouble(displayLabel.getText());
+                            if(!displayLabel.getText().equals("0")){
+                                displayLabel.setText(removeZeroDecimal(c/2));
                             }
                         } else if(Objects.equals(buttonValue, ".")){
                             if(!displayLabel.getText().contains(".")){
